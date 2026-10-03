@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ruta a 2000 · Ajedrez con entrenador</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%E2%99%9E%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Ruta a 2000</h1>
+    <p class="sub">Juega contra Stockfish 19 y recibe feedback de entrenador en cada jugada.</p>
+  </header>
+
+  <main>
+    <section class="board-area">
+      <div class="evalbar" id="evalbar" hidden title="Evaluación (blancas arriba)">
+        <div id="evalfill"></div>
+      </div>
+      <div class="board-col">
+        <div class="player-tag" id="tagTop"></div>
+        <div class="board-box">
+          <div id="board" role="grid" aria-label="Tablero de ajedrez"></div>
+          <svg id="arrows" viewBox="0 0 8 8" aria-hidden="true">
+            <defs>
+              <marker id="ah" viewBox="0 0 4 4" refX="2.4" refY="2" markerWidth="2.2" markerHeight="2.2" orient="auto">
+                <path d="M0,0 L4,2 L0,4 z" fill="#3b82f6"/>
+              </marker>
+            </defs>
+          </svg>
+          <div id="promo" class="promo" hidden></div>
+        </div>
+        <div class="player-tag" id="tagBottom"></div>
+      </div>
+    </section>
+
+    <aside>
+      <div class="card" id="status"></div>
+      <div class="card" id="coach"><h2>Entrenador</h2><p class="muted">Haz tu primera jugada. Te diré qué tan buena fue.</p></div>
+      <div class="card controls">
+        <button id="btnHint">Pista</button>
+        <button id="btnUndo">Deshacer</button>
+        <button id="btnResign">Rendirse</button>
+        <button id="btnNew" class="primary">Nueva partida</button>
+      </div>
+      <div class="card" id="review" hidden></div>
+      <div class="card" id="moves"><h2>Jugadas</h2><div id="movelist" class="movelist"></div></div>
+      <div class="card" id="setup">
+        <h2>Nivel del rival</h2>
+        <div class="elo-row">
+          <input type="range" id="elo" min="1320" max="3190" step="10" value="1500" aria-label="ELO del rival">
+          <output id="eloOut">1500</output>
+        </div>
+        <div class="presets" id="presets"></div>
+        <div class="road"><div id="roadFill"></div></div>
+        <p class="muted small" id="roadText"></p>
+        <div class="row">
+          <label>Juegas con
+            <select id="color">
+              <option value="w">Blancas</option>
+              <option value="b">Negras</option>
+              <option value="r">Al azar</option>
+            </select>
+          </label>
+          <label class="chk"><input type="checkbox" id="showEval"> Barra de evaluación</label>
+        </div>
+        <p class="muted small">El ELO es la escala de Stockfish (<code>UCI_Elo</code>, calibrada contra motores en CCRL). No equivale a ELO FIDE ni de Lichess.</p>
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    Motor: <a href="https://github.com/nmrugg/stockfish.js">Stockfish 19 (WASM)</a>, GPL-3.0 · Reglas: chess.js
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
