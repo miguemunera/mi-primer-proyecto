@@ -1,4 +1,4 @@
-# Ruta a 3000
+# Ruta a 2000
 
 Juego de ajedrez contra Stockfish 19 (WASM, corre en tu navegador) con entrenador integrado.
 
@@ -13,12 +13,12 @@ python3 -m http.server 8000
 
 ## Qué incluye
 
-- Rival ajustable de ELO 1320 a 3190 (`UCI_Elo` de Stockfish) y modo máximo. Preajustes: 1500 → 3000.
+- Rival ajustable de ELO 1320 a 3190 (`UCI_Elo` de Stockfish) y modo máximo. Preajustes: 1400 → 3000. Meta por defecto: 2000, suficiente para ganar a casi cualquiera en la calle.
 - Feedback tras cada jugada tuya: mejor jugada / buena / imprecisión / error / error grave, con la razón
   (qué captura o mate permites) y cuál era la mejor.
 - «Deshacer y reintentar» tras un error, y pistas en 3 niveles (tipo de pieza → casilla → jugada).
 - Revisión al final: precisión, jugadas a revisar y consejos según tus errores.
-- «Ruta a 3000»: guarda el mayor nivel que has vencido y sube/baja 100 ELO según el resultado.
+- «Ruta a 2000»: guarda el mayor nivel que has vencido y sube/baja 100 ELO según el resultado.
 
 ## Limitaciones honestas
 

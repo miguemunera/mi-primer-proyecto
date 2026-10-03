@@ -139,6 +139,7 @@ function describeBest(fenBefore, bestUci, mate) {
 
 /* ---------- Estado ---------- */
 
+const GOAL = 2000; // nivel objetivo: suficiente para ganar a casi cualquiera en la calle
 const STORE_KEY = 'ruta3000';
 const store = (() => {
   try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch { return {}; }
@@ -151,7 +152,7 @@ const opponent = new Engine();
 
 let game = new Chess();
 let playerColor = 'w';
-let elo = store.nextElo || 1500;
+let elo = store.nextElo || 1600;
 let records = [];       // una entrada por jugada (ply)
 let selected = null;
 let lastMove = null;
@@ -268,10 +269,10 @@ function renderEval() {
 
 function renderRoad() {
   const beaten = store.beaten || 0;
-  $('roadFill').style.width = `${Math.max(0, Math.min(100, ((beaten - 1320) / (3000 - 1320)) * 100))}%`;
+  $('roadFill').style.width = `${Math.max(0, Math.min(100, ((beaten - 1320) / (GOAL - 1320)) * 100))}%`;
   $('roadText').textContent = beaten
-    ? `Mayor nivel que has vencido: ${beaten}. Meta: 3000.`
-    : 'Aún no has vencido a ningún nivel. Meta: 3000.';
+    ? `Mayor nivel que has vencido: ${beaten}. Meta: ${GOAL}.`
+    : 'Aún no has vencido a ningún nivel. Meta: ' + GOAL + '.';
   document.querySelectorAll('#presets button').forEach((b) => b.classList.toggle('on', Number(b.dataset.elo) === elo));
   $('elo').value = elo;
   $('eloOut').textContent = elo;
@@ -557,7 +558,7 @@ $('showEval').onchange = renderEval;
 $('elo').oninput = (e) => { elo = Number(e.target.value); renderRoad(); };
 $('elo').onchange = newGame;
 
-$('presets').innerHTML = [1500, 1800, 2100, 2400, 2700, 3000, 3190]
+$('presets').innerHTML = [1400, 1600, 1800, 2000, 2400, 3000, 3190]
   .map((v) => `<button data-elo="${v}">${v === 3190 ? 'Máx.' : v}</button>`).join('');
 $('presets').onclick = (e) => {
   const b = e.target.closest('button');
