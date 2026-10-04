@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bonita · Belleza & Bienestar</title>
+<meta name="description" content="Bonita — Belleza & Bienestar en Laureles, Medellín. Faciales, masajes, drenaje, cejas, pestañas y sueroterapia. Agenda tu cita por WhatsApp." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%2356603F'/><text x='50' y='72' font-size='64' text-anchor='middle' font-family='Georgia,serif' fill='%23F3EFE4'>B</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script>document.documentElement.className += ' js';</script>
+<!--
+  Bonita — Belleza & Bienestar · Laureles, Medellín
+  Fotografías: Unsplash (licencia libre), servidas desde su CDN, con viraje verde oliva por CSS.
+  Facial — kimia kazemi (@kimick): https://unsplash.com/photos/u93nTfWqR9w
+  Masaje — engin akyurt (@enginakyurt): https://unsplash.com/photos/SMwCQZWayj0
+-->
+<style>
+  :root {
+    --paper: #f3efe4;
+    --paper-deep: #e8e2d2;
+    --ink: #23261f;
+    --olive: #56603f;
+    --olive-bright: #7c8860;
+    --serum: #5f827e;
+    --line: #c9c2ac;
+
+    --serif: "Fraunces", "Hoefler Text", "Times New Roman", serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+    --container: min(60rem, 92vw);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: var(--serif);
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--olive); color: var(--paper); }
+
+  img { display: block; max-width: 100%; }
+
+  a { color: inherit; }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--serum);
+    outline-offset: 3px;
+  }
+
+  .container { width: var(--container); margin-inline: auto; }
+  .container--narrow { max-width: 44rem; }
+
+  /* ---- Shared type ---- */
+  .label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--olive);
+  }
+
+  .display {
+    font-family: var(--serif);
+    font-weight: 380;
+    font-variation-settings: "SOFT" 40, "WONK" 1;
+    line-height: 1.04;
+    text-wrap: balance;
+  }
+
+  /* ---- Rules / dividers ---- */
+  .rule2 {
+    height: 3px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* ---- The arch (signature) ---- */
+  .arch {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 47% 47% 8px 8px / 58% 58% 8px 8px;
+    background: var(--paper-deep);
+    isolation: isolate;
+  }
+  .arch img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.55) contrast(1.05) brightness(1.12);
+  }
+  .arch::before {                 /* olive duotone (multiply over desaturated photo) */
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: var(--olive);
+    mix-blend-mode: multiply;
+    opacity: 0.34;
+  }
+  .arch::after {                  /* inner keyline */
+    content: "";
+    position: absolute;
+    inset: 9px;
+    z-index: 2;
+    border: 1px solid rgba(243, 239, 228, 0.4);
+    border-radius: 45% 45% 5px 5px / 55% 55% 5px 5px;
+    pointer-events: none;
+  }
+
+  /* ---- Header ---- */
+  .site-head {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(7px);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-head .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 0.85rem;
+  }
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .mark {
+    display: grid;
+    place-items: center;
+    width: 1.7rem;
+    height: 1.7rem;
+    background: var(--olive);
+    color: var(--paper);
+    border-radius: 46% 46% 3px 3px / 58% 58% 3px 3px;
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    padding-bottom: 1px;
+  }
+  .nav-book {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.55rem 1.1rem;
+    background: var(--olive);
+    color: var(--paper);
+    transition: background 0.2s ease;
+  }
+  .nav-book:hover { background: var(--ink); }
+
+  /* ---- Section frame ---- */
+  .section { padding-block: clamp(3.5rem, 7vw, 5.75rem); }
+  .section-mark {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 2.25rem;
+  }
+  .section-mark::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+    transform: translateY(-0.2em);
+  }
+
+  /* ---- Hero ---- */
+  .hero { padding-block: clamp(3rem, 6vw, 5rem) clamp(3.5rem, 7vw, 6rem); }
+  .hero .container {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-eyebrow::before {
+    content: "";
+    width: 2.2rem;
+    height: 1px;
+    background: var(--olive);
+  }
+  .hero h1 {
+    font-size: clamp(3.4rem, 11vw, 7rem);
+    font-weight: 420;
+    letter-spacing: 0.015em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .hero .tagline {
+    font-style: italic;
+    font-weight: 360;
+    font-size: clamp(1.15rem, 2.3vw, 1.45rem);
+    color: var(--olive);
+    margin-top: 1rem;
+    max-width: 30ch;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.4rem;
+    margin-top: 2.4rem;
+  }
+  .btn {
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.95rem 1.8rem;
+    background: var(--olive);
+    color: var(--paper);
+    border: 1px solid var(--olive);
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .btn:hover { background: var(--ink); border-color: var(--ink); }
+  .link-down {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.2rem;
+    transition: border-color 0.2s ease;
+  }
+  .link-down:hover { border-color: var(--olive); }
+  .hero-figure { justify-self: end; align-self: center; width: 100%; max-width: 22rem; aspect-ratio: 3 / 4; }
+
+  /* ---- La carta ---- */
+  .carta-group { padding-block: 1.9rem; border-top: 1px solid var(--line); }
+  .carta-group:first-of-type { border-top: 0; padding-top: 0.5rem; }
+  .carta-group > h3 {
+    font-size: 1.9rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 1.35rem;
+  }
+  .carta-list { display: grid; gap: 1.15rem; }
+  .carta-item {
+    display: grid;
+    grid-template-columns: minmax(11rem, 15rem) 1fr;
+    gap: 0.4rem 2rem;
+    align-items: baseline;
+  }
+  .carta-item .name { font-size: 1.28rem; font-weight: 400; color: var(--ink); }
+  .carta-item .desc {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: color-mix(in srgb, var(--ink) 72%, var(--paper));
+  }
+
+  /* ---- Sueroterapia (the outlier) ---- */
+  .serum {
+    margin-top: 2.5rem;
+    padding: 2rem clamp(1.4rem, 4vw, 2.6rem);
+    background: var(--paper-deep);
+    border-left: 2px solid var(--serum);
+  }
+  .serum .label { color: var(--serum); }
+  .serum h3 {
+    font-size: 1.9rem;
+    font-weight: 400;
+    margin: 0.55rem 0 0.6rem;
+  }
+  .serum p {
+    font-family: var(--mono);
+    font-size: 0.84rem;
+    line-height: 1.6;
+    max-width: 46ch;
+    color: color-mix(in srgb, var(--ink) 75%, var(--paper));
+  }
+  .formulas {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.9rem;
+    margin-top: 1.4rem;
+  }
+  .formulas li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.12rem;
+  }
+  .formulas li::before {
+    content: "";
+    width: 0.62rem;
+    height: 0.62rem;
+    border-radius: 50%;
+    border: 1px solid var(--serum);
+    background: color-mix(in srgb, var(--serum) 22%, transparent);
+  }
+
+  /* ---- Agenda ---- */
+  .book .container {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+  .book-figure { width: 100%; max-width: 20rem; aspect-ratio: 3 / 4; }
+  form { display: grid; gap: 1.5rem; }
+  .field { display: grid; gap: 0.45rem; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  form label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--olive);
+  }
+  form input, form select, form textarea {
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    color: var(--ink);
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    padding: 0.55rem 0.1rem;
+    transition: border-color 0.2s ease;
+  }
+  form textarea { resize: vertical; min-height: 3.2rem; line-height: 1.6; }
+  form input:focus, form select:focus, form textarea:focus {
+    border-bottom-color: var(--serum);
+  }
+  form input:focus-visible, form select:focus-visible, form textarea:focus-visible {
+    outline: 2px solid var(--serum);
+    outline-offset: 3px;
+  }
+  form select { appearance: none; background-image: none; }
+  form button {
+    justify-self: start;
+    margin-top: 0.4rem;
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.95rem 1.9rem;
+    background: var(--olive);
+    color: var(--paper);
+    border: 1px solid var(--olive);
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  form button:hover { background: var(--ink); border-color: var(--ink); }
+  form button:focus-visible { outline: 2px solid var(--serum); outline-offset: 3px; }
+  .book-alt {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: color-mix(in srgb, var(--ink) 70%, var(--paper));
+  }
+  .book-alt a { text-decoration: none; border-bottom: 1px solid var(--line); }
+
+  /* ---- Colophon ---- */
+  .colophon {
+    background: var(--ink);
+    color: var(--paper);
+    padding-block: clamp(3rem, 6vw, 4.5rem) 2.25rem;
+  }
+  .colophon .wordmark-lg {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 2.4rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 2.25rem;
+    display: block;
+  }
+  .colophon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    gap: 1.75rem 2rem;
+  }
+  .colophon h4 {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--olive-bright);
+    margin-bottom: 0.7rem;
+  }
+  .colophon p, .colophon a {
+    font-family: var(--mono);
+    font-size: 0.84rem;
+    line-height: 1.7;
+    text-decoration: none;
+    color: color-mix(in srgb, var(--paper) 88%, var(--ink));
+  }
+  .colophon a:hover { color: var(--serum); }
+  .colophon-foot {
+    margin-top: 2.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid color-mix(in srgb, var(--paper) 22%, transparent);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: color-mix(in srgb, var(--paper) 55%, var(--ink));
+  }
+
+  /* ---- Motion (only when JS is present; content is visible by default) ---- */
+  .js .reveal { opacity: 0; transform: translateY(14px); }
+  .js .reveal.in { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s ease; }
+
+  .js .lift { animation: lift-in 0.7s ease backwards; }
+  .js .hero-eyebrow.lift { animation-delay: 0.04s; }
+  .js .hero h1.lift { animation-delay: 0.12s; }
+  .js .tagline.lift { animation-delay: 0.2s; }
+  .js .hero-actions.lift { animation-delay: 0.28s; }
+  .js .hero-figure.lift { animation-delay: 0.16s; animation-duration: 0.9s; }
+
+  @keyframes lift-in {
+    from { opacity: 0; transform: translateY(16px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .js .reveal, .js .reveal.in { opacity: 1; transform: none; transition: none; }
+    .js .lift { animation: none; }
+  }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 860px) {
+    .hero .container { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-figure { order: -1; justify-self: center; max-width: 17rem; }
+    .book .container { grid-template-columns: 1fr; }
+    .book-figure { order: -1; justify-self: center; max-width: 15rem; }
+    .carta-item { grid-template-columns: 1fr; gap: 0.25rem; }
+  }
+  @media (max-width: 560px) {
+    .row2 { grid-template-columns: 1fr; }
+    .site-head .wordmark span.full { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="container">
+    <a class="wordmark" href="#top"><span class="mark">B</span><span class="full">Bonita</span></a>
+    <a class="nav-book" href="#agenda">Agendar</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-copy">
+        <p class="hero-eyebrow lift"><span class="label">Belleza &amp; Bienestar · Medellín</span></p>
+        <h1 class="display lift">Bonita</h1>
+        <p class="tagline lift">Un lugar para cuidarte, en Laureles.</p>
+        <div class="hero-actions lift">
+          <a class="btn" href="#agenda">Agenda tu cita</a>
+          <a class="link-down" href="#carta">Ver la carta ↓</a>
+        </div>
+      </div>
+      <figure class="arch hero-figure lift">
+        <img src="https://images.unsplash.com/photo-1731514771613-991a02407132?auto=format&amp;fit=crop&amp;crop=faces&amp;w=760&amp;h=1000&amp;q=76" alt="Tratamiento facial en Bonita" width="760" height="1000" loading="eager" decoding="async" referrerpolicy="no-referrer" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="carta">
+    <div class="container container--narrow">
+      <div class="section-mark"><span class="label">La carta</span></div>
+
+      <div class="carta-group reveal">
+        <h3 class="display">Rostro</h3>
+        <div class="carta-list">
+          <div class="carta-item">
+            <span class="name">Limpieza facial profunda</span>
+            <span class="desc">Extracción y limpieza a fondo; la piel queda despejada y con textura pareja.</span>
+          </div>
+          <div class="carta-item">
+            <span class="name">Alta hidratación facial</span>
+            <span class="desc">Hidratación intensiva para una piel tersa, descansada y luminosa.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="carta-group reveal">
+        <h3 class="display">Cuerpo</h3>
+        <div class="carta-list">
+          <div class="carta-item">
+            <span class="name">Masaje relajante</span>
+            <span class="desc">Presión envolvente y ritmo lento para soltar la tensión acumulada.</span>
+          </div>
+          <div class="carta-item">
+            <span class="name">Drenaje linfático</span>
+            <span class="desc">Maniobras suaves que activan la circulación y reducen la retención.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="carta-group reveal">
+        <h3 class="display">Cejas &amp; pestañas</h3>
+        <div class="carta-list">
+          <div class="carta-item">
+            <span class="name">Depilación de cejas</span>
+            <span class="desc">Diseño y limpieza según la forma de tu rostro.</span>
+          </div>
+          <div class="carta-item">
+            <span class="name">Laminado de cejas</span>
+            <span class="desc">Cejas peinadas y fijadas en su sitio hasta por seis semanas.</span>
+          </div>
+          <div class="carta-item">
+            <span class="name">Lifting de pestañas</span>
+            <span class="desc">Curvatura natural desde la raíz, sin extensiones.</span>
+          </div>
+          <div class="carta-item">
+            <span class="name">Extensiones de pestañas</span>
+            <span class="desc">Volumen hecho a medida, pelo por pelo.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="serum reveal">
+        <span class="label">Sueroterapia</span>
+        <h3 class="display">Vitaminas por vía intravenosa</h3>
+        <p>Un refuerzo de vitaminas y antioxidantes directo al torrente, con valoración previa. Cuatro fórmulas:</p>
+        <ul class="formulas">
+          <li>Detox</li>
+          <li>Vitamina&nbsp;C</li>
+          <li>Vitaminado</li>
+          <li>Anti-estrés</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section book" id="agenda">
+    <div class="container">
+      <figure class="arch book-figure reveal">
+        <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&amp;fit=crop&amp;w=760&amp;h=1000&amp;q=74" alt="Masaje relajante en Bonita" width="760" height="1000" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+      </figure>
+      <div class="book-copy reveal">
+        <div class="section-mark"><span class="label">Agenda</span></div>
+        <p style="margin-bottom:1.6rem; max-width:34ch;">Dinos cómo te quieres cuidar y te conectamos con nuestro WhatsApp para confirmar tu cita.</p>
+        <form id="booking-form">
+          <div class="row2">
+            <div class="field">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" required autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" required autocomplete="tel" />
+            </div>
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label for="servicio">Servicio</label>
+              <select id="servicio" name="servicio" required>
+                <option value="" disabled selected>Elige uno…</option>
+                <option>Limpieza facial profunda</option>
+                <option>Alta hidratación facial</option>
+                <option>Masaje relajante</option>
+                <option>Drenaje linfático</option>
+                <option>Depilación de cejas</option>
+                <option>Laminado de cejas</option>
+                <option>Lifting de pestañas</option>
+                <option>Extensiones de pestañas</option>
+                <option>Sueroterapia</option>
+                <option>Aún no lo sé</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="fecha">Fecha preferida</label>
+              <input type="date" id="fecha" name="fecha" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="mensaje">Mensaje (opcional)</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Horario que te conviene, dudas, lo que quieras contarnos."></textarea>
+          </div>
+          <button type="submit">Enviar por WhatsApp</button>
+        </form>
+        <p class="book-alt" style="margin-top:1.4rem;">O escríbenos directo: <a href="https://wa.me/573014448072" target="_blank" rel="noopener">301&nbsp;444&nbsp;8072</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="colophon" id="contacto">
+  <div class="container">
+    <span class="wordmark-lg">Bonita</span>
+    <div class="colophon-grid">
+      <div>
+        <h4>Dónde</h4>
+        <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Cra+79+%2334A-105+Laureles+Medellin" target="_blank" rel="noopener">Cra 79 #34A-105<br />Laureles, Medellín</a></p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p>
+          <a href="https://wa.me/573014448072" target="_blank" rel="noopener">WhatsApp 301 444 8072</a><br />
+          <a href="https://instagram.com/bonita.mde" target="_blank" rel="noopener">@bonita.mde</a>
+        </p>
+      </div>
+      <div>
+        <h4>Horario</h4>
+        <p>Lunes a sábado<br />9:00 – 18:00<br />Con cita previa</p>
+      </div>
+    </div>
+    <p class="colophon-foot">© <span id="year"></span> Bonita · Belleza &amp; Bienestar — Laureles, Medellín</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var reveals = document.querySelectorAll('.reveal');
+  try {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    reveals.forEach(function (el) { io.observe(el); });
+    // safety net: never leave a section hidden
+    setTimeout(function () { reveals.forEach(function (el) { el.classList.add('in'); }); }, 2600);
+  } catch (err) {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  var WHATSAPP_NUMBER = '573014448072';
+  document.getElementById('booking-form').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var f = ev.target;
+    var lines = [
+      '¡Hola Bonita! Quiero agendar una cita.',
+      '',
+      'Nombre: ' + f.nombre.value,
+      'Teléfono: ' + f.telefono.value,
+      'Servicio: ' + f.servicio.value
+    ];
+    if (f.fecha.value) lines.push('Fecha preferida: ' + f.fecha.value);
+    if (f.mensaje.value.trim()) lines.push('Mensaje: ' + f.mensaje.value.trim());
+    var url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(lines.join('\n'));
+    window.open(url, '_blank', 'noopener');
+  });
+</script>
+
+</body>
+</html>
