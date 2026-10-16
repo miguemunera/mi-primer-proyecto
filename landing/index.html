@@ -1,0 +1,320 @@
+<title>Olga Mar Limpieza</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Olga Mar: limpieza profesional y lavandería con recogida y entrega a domicilio. Llama al 672 57 68 73.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: una columna móvil primero, bandas a sangre como la tarjeta (fondo lavanda, banda marina con teléfono); dos columnas a partir de 760px.
+   Aspecto único a propósito (el de la tarjeta impresa), igual en tema claro y oscuro. */
+:root {
+  --bg: #F1ECF2;        /* fondo gris lavanda de la tarjeta */
+  --paper: #FBF9FC;
+  --navy: #0F1B4C;
+  --blue: #1E64B0;
+  --sky: #8FD0F0;
+  --green: #3FA53C;
+  --line: #DCD3E0;
+  --muted: #4A5378;
+  --pend-fg: #A3460F;   /* marcador "pendiente" sobre fondo claro */
+  --pend-bg: #FFE9DC;
+  --pend-on-navy: #FFB38A;
+  --font: "Fira Sans", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+img { max-width: 100%; height: auto; display: block; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--bg); color: var(--navy);
+  font-family: var(--font); font-size: 17px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { margin: 0; line-height: 1.08; text-wrap: balance; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
+
+.wrap {
+  max-width: 1080px; margin: 0 auto;
+  padding-left: var(--gutter-l); padding-right: var(--gutter-r);
+}
+
+/* Aviso de modelo */
+.draft {
+  background: var(--pend-bg); color: var(--pend-fg);
+  font-size: 13.5px; font-weight: 500;
+}
+.draft .wrap { padding-block: 8px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.draft b { font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-size: 12px; }
+
+/* Marcador de dato pendiente */
+.pend {
+  display: inline-block; color: var(--pend-fg); background: var(--pend-bg);
+  border: 1.5px dashed currentColor; border-radius: 6px;
+  padding: 0 .4em; font-weight: 500; font-size: .92em; line-height: 1.5;
+}
+.on-navy .pend { color: var(--pend-on-navy); background: transparent; }
+
+/* Cabecera */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+header.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 10px; }
+.brand { font-weight: 700; font-size: 22px; letter-spacing: .04em; text-decoration: none; }
+nav.links { display: none; gap: 24px; font-weight: 500; font-size: 15px; }
+nav.links a { text-decoration: none; }
+nav.links a:hover { color: var(--blue); }
+
+.btn-call {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--navy); color: #fff; text-decoration: none;
+  font-weight: 700; border-radius: 999px; padding: 8px 16px 8px 8px;
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.btn-call:hover { background: #1A2A6C; }
+.ico {
+  flex: none; width: 30px; height: 30px; border-radius: 50%;
+  background: var(--green); display: grid; place-items: center;
+}
+.ico svg { width: 56%; height: 56%; }
+
+/* Portada */
+.hero .wrap {
+  display: grid; gap: 20px; padding-block: 28px 36px;
+  grid-template-columns: 1fr; align-items: center;
+}
+.hero-logo { width: min(52vw, 210px); justify-self: center; }
+.eyebrow { font-weight: 700; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); }
+.hero h1 { font-weight: 800; font-size: clamp(44px, 12vw, 84px); letter-spacing: -.01em; text-transform: uppercase; }
+.hero .sub { font-weight: 600; font-size: clamp(19px, 4.6vw, 24px); color: var(--blue); }
+.hero .lead { color: var(--muted); max-width: 34ch; }
+.hero-text { display: grid; gap: 14px; min-width: 0; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 6px; }
+.btn-call.big { font-size: 24px; padding: 10px 24px 10px 10px; }
+.btn-call.big .ico { width: 44px; height: 44px; }
+.cta-note { font-size: 14px; color: var(--muted); }
+
+.new-strip {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--paper); border: 1px solid var(--line); border-radius: 14px;
+  padding: 10px 16px 10px 10px; text-decoration: none; margin-top: 8px;
+}
+.new-strip img { width: 58px; flex: none; }
+.new-strip span { font-weight: 600; line-height: 1.3; min-width: 0; }
+.new-strip em { font-style: normal; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #fff; background: var(--blue); border-radius: 4px; padding: 1px 6px; margin-right: 6px; }
+.new-strip:hover { border-color: var(--blue); }
+
+/* Secciones */
+section.block .wrap { padding-block: 48px; display: grid; gap: 24px; }
+.block h2 { font-weight: 800; font-size: clamp(30px, 7.5vw, 44px); text-transform: uppercase; }
+.block .intro { color: var(--muted); max-width: 60ch; }
+.paper { background: var(--paper); border-block: 1px solid var(--line); }
+
+.services { display: grid; gap: 12px; grid-template-columns: 1fr; }
+.service {
+  display: grid; gap: 6px; padding: 18px 18px 18px 20px;
+  border-left: 4px solid var(--blue); background: var(--bg); border-radius: 0 10px 10px 0;
+  min-width: 0;
+}
+.service h3 { font-size: 20px; font-weight: 700; }
+.service p { color: var(--muted); font-size: 15.5px; }
+.example-tag { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--pend-fg); }
+
+/* Lavandería */
+.laundry-head { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.laundry-head img { width: 88px; flex: none; }
+.laundry-head > div { min-width: 0; display: grid; gap: 6px; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: s; grid-template-columns: 1fr; }
+.steps li {
+  counter-increment: s; position: relative; min-width: 0;
+  background: var(--paper); border: 1px solid var(--line); border-radius: 14px;
+  padding: 18px 18px 18px 72px;
+}
+.steps li::before {
+  content: counter(s); position: absolute; left: 18px; top: 16px;
+  width: 38px; height: 38px; border-radius: 50%; background: var(--navy); color: #fff;
+  display: grid; place-items: center; font-weight: 800; font-size: 18px;
+}
+.steps h3 { font-size: 19px; font-weight: 700; margin-bottom: 4px; }
+.steps p { color: var(--muted); font-size: 15.5px; }
+.facts { display: grid; gap: 8px; font-size: 15.5px; }
+.facts div { display: flex; gap: 10px; flex-wrap: wrap; align-items: baseline; }
+.facts dt { font-weight: 700; font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); min-width: 9em; }
+.facts dd { margin: 0; min-width: 0; }
+
+/* Contacto: banda marina como la de la tarjeta */
+.contact { background: var(--navy); color: #fff; }
+.contact .wrap { padding-block: 48px 56px; display: grid; gap: 28px; }
+.contact h2 { color: #fff; }
+.contact .label { color: var(--sky); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 14px; }
+.phone-big { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.phone-big a { font-size: clamp(40px, 11vw, 64px); font-weight: 700; text-decoration: none; font-variant-numeric: tabular-nums; letter-spacing: .01em; line-height: 1; }
+.phone-big .ico { width: 54px; height: 54px; }
+.copy {
+  font: inherit; font-size: 14px; font-weight: 600; color: var(--sky);
+  background: transparent; border: 1.5px solid var(--sky); border-radius: 999px; padding: 6px 14px; cursor: pointer;
+}
+.copy:hover { background: rgba(143, 208, 240, .12); }
+.contact .facts dt { color: var(--sky); }
+.contact .facts { font-size: 16px; }
+
+footer { background: var(--navy); color: #C9CFE6; border-top: 1px solid rgba(255,255,255,.12); font-size: 14px; }
+footer .wrap { padding-block: 18px 96px; display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
+
+/* Barra fija de llamada en móvil */
+.callbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 6;
+  padding: 10px var(--gutter-r) calc(10px + env(safe-area-inset-bottom, 0px)) var(--gutter-l);
+  background: var(--navy); display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  box-shadow: 0 -6px 20px rgba(15, 27, 76, .25);
+}
+.callbar span { color: var(--sky); font-weight: 700; font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; }
+.callbar .btn-call { background: var(--green); padding: 8px 18px; }
+.callbar .btn-call:hover { background: #369233; }
+
+@media (min-width: 760px) {
+  nav.links { display: flex; }
+  .hero .wrap { grid-template-columns: 1fr 1.25fr; padding-block: 56px 64px; gap: 40px; }
+  .hero-logo { width: 100%; max-width: 380px; order: 0; }
+  .hero h1 { font-size: clamp(56px, 7vw, 88px); }
+  .services { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: repeat(3, 1fr); }
+  .steps li { padding: 70px 20px 20px; }
+  .steps li::before { left: 20px; top: 20px; }
+  section.block .wrap { padding-block: 72px; }
+  .contact .wrap { grid-template-columns: 1.2fr 1fr; align-items: end; }
+  .callbar { display: none; }
+  footer .wrap { padding-block: 22px; }
+}
+</style>
+
+<div class="draft"><div class="wrap"><b>Modelo v1</b><span>Lo marcado con borde naranja está pendiente de confirmar con la clienta.</span></div></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio">OLGA MAR</a>
+    <nav class="links" aria-label="Secciones">
+      <a href="#limpieza">Limpieza</a>
+      <a href="#lavanderia">Lavandería</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="btn-call" href="tel:+34672576873" aria-label="Llamar al 672 57 68 73">
+      <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M8.2 4.5C5 8.6 9.6 17.2 17.4 17.8"/></svg></span>
+      672 57 68 73
+    </a>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap">
+      <img class="hero-logo" src="img/logo_limpieza.webp" alt="Logotipo de limpieza Olga Mar: gota de agua con pulverizador y cepillo" width="473" height="460">
+      <div class="hero-text">
+        <p class="eyebrow">Olga Mar</p>
+        <h1>Limpieza profesional</h1>
+        <p class="sub">Con <span class="pend">[nº] años</span> de experiencia en <span class="pend">[zona]</span></p>
+        <p class="lead">Limpiamos tu casa o tu negocio. Llámanos, cuéntanos qué necesitas y te damos presupuesto.</p>
+        <div class="cta-row">
+          <a class="btn-call big" href="tel:+34672576873">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M8.2 4.5C5 8.6 9.6 17.2 17.4 17.8"/></svg></span>
+            672 57 68 73
+          </a>
+          <span class="cta-note">Pide tu presupuesto</span>
+        </div>
+        <a class="new-strip" href="#lavanderia">
+          <img src="img/logo_lavanderia.webp" alt="" width="578" height="513">
+          <span><em>Nuevo</em>Lavandería con recogida y entrega en casa</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block paper" id="limpieza">
+    <div class="wrap">
+      <h2>Limpieza</h2>
+      <p class="intro">Nuestro servicio principal. <span class="pend">[Frase de la clienta sobre su trayectoria y cómo trabaja]</span></p>
+      <p class="example-tag">Ejemplos de servicios, por confirmar</p>
+      <div class="services">
+        <div class="service"><h3>Hogares</h3><p>Limpieza periódica o puntual de pisos y casas.</p></div>
+        <div class="service"><h3>Oficinas y locales</h3><p>Mantenimiento de espacios de trabajo y comercios.</p></div>
+        <div class="service"><h3>Comunidades</h3><p>Portales, escaleras y zonas comunes.</p></div>
+        <div class="service"><h3>Limpiezas a fondo</h3><p>Fin de obra, mudanzas o cambio de inquilino.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="lavanderia">
+    <div class="wrap">
+      <div class="laundry-head">
+        <img src="img/logo_lavanderia.webp" alt="Logotipo de la lavandería Olga Mar: gota y lavadora" width="578" height="513">
+        <div>
+          <p class="eyebrow">Nuevo servicio</p>
+          <h2>Lavandería a domicilio</h2>
+        </div>
+      </div>
+      <p class="intro">Recogemos tu ropa en casa, la lavamos y te la devolvemos lista. Así funciona:</p>
+      <ol class="steps">
+        <li><h3>Llama y acordamos el día</h3><p>Nos dices qué quieres lavar y cuándo te viene bien la recogida.</p></li>
+        <li><h3>Recogemos en tu casa</h3><p>Pasamos a por la ropa a la hora acordada.</p></li>
+        <li><h3>Te la devolvemos lista</h3><p>Lavada y entregada en tu puerta en <span class="pend">[plazo]</span>.</p></li>
+      </ol>
+      <dl class="facts">
+        <div><dt>Qué lavamos</dt><dd><span class="pend">[ropa, ropa de cama, edredones…]</span></dd></div>
+        <div><dt>Zona de recogida</dt><dd><span class="pend">[¿misma zona que la limpieza?]</span></dd></div>
+        <div><dt>Precios</dt><dd><span class="pend">[por kilo, por prenda o por bolsa]</span></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="contact on-navy" id="contacto">
+    <div class="wrap">
+      <div style="display:grid;gap:16px;min-width:0">
+        <p class="label">Pide tu presupuesto</p>
+        <h2 class="block-h" style="font-weight:800;font-size:clamp(30px,7.5vw,44px);text-transform:uppercase">Llámanos</h2>
+        <div class="phone-big">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M8.2 4.5C5 8.6 9.6 17.2 17.4 17.8"/></svg></span>
+          <a href="tel:+34672576873" id="tel">672 57 68 73</a>
+          <button class="copy" id="copy-tel" type="button">Copiar número</button>
+        </div>
+      </div>
+      <dl class="facts">
+        <div><dt>WhatsApp</dt><dd><span class="pend">[¿mismo número?]</span></dd></div>
+        <div><dt>Horario</dt><dd><span class="pend">[horario de atención]</span></dd></div>
+        <div><dt>Zona</dt><dd><span class="pend">[localidades]</span></dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b style="color:#fff;letter-spacing:.04em">OLGA MAR</b> · Limpieza · Lavandería a domicilio</span>
+    <span>672 57 68 73</span>
+  </div>
+</footer>
+
+<div class="callbar on-navy">
+  <span>Pide tu presupuesto</span>
+  <a class="btn-call" href="tel:+34672576873">Llamar · 672 57 68 73</a>
+</div>
+
+<script>
+document.getElementById('copy-tel').addEventListener('click', function () {
+  var btn = this, num = '672 57 68 73';
+  function done() { btn.textContent = 'Copiado'; setTimeout(function () { btn.textContent = 'Copiar número'; }, 1800); }
+  function fallback() {
+    var r = document.createRange(); r.selectNodeContents(document.getElementById('tel'));
+    var s = getSelection(); s.removeAllRanges(); s.addRange(r);
+    btn.textContent = 'Seleccionado';
+  }
+  try { navigator.clipboard.writeText(num).then(done, fallback); } catch (e) { fallback(); }
+});
+</script>
