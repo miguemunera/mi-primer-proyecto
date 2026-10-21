@@ -1,12 +1,13 @@
 <title>Olga Mar Limpieza</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Olga Mar, servicios de limpieza de Vilanova i la Geltrú a El Vendrell. Nuevo: lavandería con recogida y entrega a domicilio. Tel. 672 57 68 73.">
+<meta name="description" content="Olga Mar, servicios de limpieza de Vilanova i la Geltrú a El Vendrell. Novedad: lavandería con recogida y entrega a domicilio. Tel. 672 57 68 73.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap">
 <style>
-/* Layout: landing de servicios en bandas a sangre (estructura de las referencias), una columna en móvil,
-   rejillas de 2-3 columnas desde 760px. Aspecto único a propósito: los colores del logo, igual en tema claro y oscuro. */
+/* Layout: landing de servicios en bandas a sangre (estructura de las referencias), foto + texto en dos columnas desde 760px,
+   una columna en móvil. Aspecto único a propósito: los colores del logo, igual en tema claro y oscuro.
+   La lavandería usa un acento propio (coral + amarillo) para destacar como novedad. */
 :root {
   --navy: #0B3A6E;      /* azul del logo */
   --navy-2: #082B53;
@@ -18,6 +19,7 @@
   --muted: #4D6280;
   --sun: #FFC93C;       /* botón principal, como en las referencias */
   --sun-ink: #3A2A00;
+  --coral: #FF5A3C;     /* solo para la novedad de lavandería */
   --wa: #1FA855;
   --demo-fg: #9A4A0C;
   --demo-bg: #FFF1E3;
@@ -45,6 +47,8 @@ a { color: inherit; }
 .sec-head { display: grid; gap: 10px; margin-bottom: 28px; }
 .center { text-align: center; justify-items: center; }
 .demo { display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--demo-fg); background: var(--demo-bg); border-radius: 999px; padding: 2px 10px; }
+.photo { border-radius: 22px; overflow: hidden; background: var(--sky-2); }
+.photo img { width: 100%; height: 100%; object-fit: cover; }
 
 /* Botones */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: var(--display); font-weight: 700; font-size: 15.5px; text-decoration: none; border-radius: 999px; padding: 14px 22px; border: 2px solid transparent; cursor: pointer; white-space: nowrap; transition: transform .15s ease, background .15s ease; }
@@ -78,13 +82,14 @@ header.nav .wrap { display: flex; align-items: center; justify-content: space-be
 nav.links { display: none; gap: 26px; font-weight: 600; font-size: 15px; }
 nav.links a { text-decoration: none; color: var(--ink); }
 nav.links a:hover { color: var(--blue); }
+nav.links a.hot { color: var(--coral); }
 header.nav .btn { padding: 10px 16px; font-size: 14px; }
 
 /* Portada */
 .hero { background: linear-gradient(180deg, var(--sky) 0%, var(--white) 100%); overflow: hidden; }
-.hero .wrap { display: grid; gap: 32px; padding-block: 36px 48px; align-items: center; }
+.hero .wrap { display: grid; gap: 28px; padding-block: 32px 48px; align-items: center; }
 .hero-copy { display: grid; gap: 16px; min-width: 0; }
-.hero h1 { font-size: clamp(36px, 9.6vw, 62px); font-weight: 800; color: var(--navy); }
+.hero h1 { font-size: clamp(36px, 9.6vw, 60px); font-weight: 800; color: var(--navy); }
 .hero h1 em { font-style: normal; color: var(--blue); }
 .hero .lead { font-size: 18px; }
 .cta-row { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -93,29 +98,50 @@ header.nav .btn { padding: 10px 16px; font-size: 14px; }
 .trust .ic { width: 40px; height: 40px; border-radius: 12px; background: var(--white); box-shadow: 0 2px 10px rgba(11,58,110,.1); display: grid; place-items: center; color: var(--blue); }
 .trust .ic svg { width: 22px; height: 22px; }
 
-.hero-art { position: relative; justify-self: center; width: min(80vw, 340px); aspect-ratio: 1; max-width: 100%; }
-.hero-art .disc { position: absolute; inset: 6%; border-radius: 50%; background: radial-gradient(circle at 50% 40%, var(--white) 0 52%, var(--sky-2) 53% 100%); }
-.hero-art img { position: absolute; inset: 14% 14% 12%; width: 72%; margin: auto; }
-.float { position: absolute; background: var(--white); border-radius: 14px; box-shadow: 0 10px 30px rgba(11,58,110,.16); padding: 10px 14px; font-size: 13px; line-height: 1.3; display: flex; gap: 10px; align-items: center; }
-.float b { font-family: var(--display); font-size: 17px; color: var(--navy); display: block; }
-.float.f1 { top: 4%; right: 0; }
-.float.f2 { bottom: 6%; left: 0; }
+.hero-art { position: relative; min-width: 0; padding-bottom: 64px; }
+.hero-art .photo { aspect-ratio: 4 / 3.4; box-shadow: 0 20px 50px rgba(11,58,110,.18); }
+.hero-art .photo img { object-position: 66% 50%; }
+.rating { position: absolute; top: 14px; left: 14px; background: var(--white); border-radius: 14px; box-shadow: 0 10px 30px rgba(11,58,110,.18); padding: 10px 14px; font-size: 12.5px; line-height: 1.3; }
+.rating b { font-family: var(--display); font-size: 17px; color: var(--navy); display: block; }
 .stars { color: #F5A400; letter-spacing: 1px; font-size: 14px; }
-.float .dot { width: 34px; height: 34px; border-radius: 50%; background: var(--navy); color: var(--white); display: grid; place-items: center; flex: none; }
-.float .dot svg { width: 18px; height: 18px; }
+
+/* Tarjeta "¡Novedad!" sobre la foto */
+.novedad {
+  position: absolute; right: 0; bottom: 0; width: min(92%, 330px);
+  background: var(--sun); color: var(--sun-ink); text-decoration: none;
+  border-radius: 18px; padding: 16px 18px 16px 16px;
+  box-shadow: 0 14px 34px rgba(58,42,0,.28);
+  display: grid; grid-template-columns: 52px 1fr; gap: 12px; align-items: center;
+  transform: rotate(-1.5deg); transition: transform .2s ease;
+}
+.novedad:hover { transform: rotate(0deg) translateY(-2px); }
+.novedad .tag {
+  position: absolute; top: -14px; left: 16px;
+  background: var(--coral); color: var(--white); font-family: var(--display); font-weight: 800;
+  font-size: 13px; letter-spacing: .08em; text-transform: uppercase; border-radius: 999px; padding: 5px 12px;
+  box-shadow: 0 6px 14px rgba(255,90,60,.35);
+}
+.novedad .tag::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--white); margin-right: 7px; vertical-align: 1px; animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.7); } }
+.novedad .ic { width: 52px; height: 52px; border-radius: 14px; background: var(--navy); color: var(--white); display: grid; place-items: center; }
+.novedad .ic svg { width: 28px; height: 28px; }
+.novedad strong { display: block; font-family: var(--display); font-weight: 800; font-size: 17px; line-height: 1.2; color: var(--navy); }
+.novedad span { display: block; font-size: 13.5px; line-height: 1.35; margin-top: 3px; }
+.novedad u { text-decoration: none; font-weight: 700; color: var(--navy); }
 
 /* Lavandería destacada */
 .laundry { background: var(--navy); color: var(--white); position: relative; overflow: hidden; }
-.laundry::after { content: ""; position: absolute; right: -120px; top: -120px; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(10,139,219,.45), transparent 70%); pointer-events: none; }
+.laundry::after { content: ""; position: absolute; right: -120px; top: -120px; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(255,90,60,.35), transparent 70%); pointer-events: none; }
 .laundry .wrap { position: relative; z-index: 1; display: grid; gap: 28px; padding-block: 52px; }
 .laundry-copy { display: grid; gap: 14px; min-width: 0; }
-.badge-new { justify-self: start; display: inline-flex; gap: 8px; align-items: center; background: var(--sun); color: var(--sun-ink); font-family: var(--display); font-weight: 800; font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; border-radius: 999px; padding: 6px 14px; }
+.badge-new { justify-self: start; display: inline-flex; gap: 8px; align-items: center; background: var(--coral); color: var(--white); font-family: var(--display); font-weight: 800; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; border-radius: 999px; padding: 6px 14px; }
 .laundry h2 { font-size: clamp(30px, 7.4vw, 48px); font-weight: 800; }
-.laundry h2 em { font-style: normal; color: #7CC8F5; }
+.laundry h2 em { font-style: normal; color: var(--sun); }
 .laundry .lead { color: #CFE2F5; }
+.laundry .photo { aspect-ratio: 4 / 5; max-height: 520px; width: 100%; }
 .lsteps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; counter-reset: l; }
 .lsteps li { counter-increment: l; display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: var(--r); padding: 16px; min-width: 0; }
-.lsteps li::before { content: counter(l); width: 44px; height: 44px; border-radius: 50%; background: var(--blue); display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 18px; }
+.lsteps li::before { content: counter(l); width: 44px; height: 44px; border-radius: 50%; background: var(--sun); color: var(--sun-ink); display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 18px; }
 .lsteps h3 { font-size: 17px; font-weight: 700; margin-bottom: 2px; }
 .lsteps p { color: #CFE2F5; font-size: 15px; }
 .soon { font-size: 14px; color: #9FC3E6; }
@@ -131,13 +157,27 @@ header.nav .btn { padding: 10px 16px; font-size: 14px; }
 .svc h3 { font-size: 16px; font-weight: 700; color: var(--navy); }
 .svc p { font-size: 14px; color: var(--muted); line-height: 1.45; }
 
-/* Por qué */
-.why { display: grid; gap: 22px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.why div { display: grid; justify-items: center; text-align: center; gap: 8px; min-width: 0; }
-.why .ic { width: 72px; height: 72px; border-radius: 50%; border: 2px solid var(--sky-2); display: grid; place-items: center; color: var(--navy); }
-.why .ic svg { width: 34px; height: 34px; }
-.why h3 { font-size: 16px; font-weight: 700; color: var(--navy); }
-.why p { font-size: 14.5px; color: var(--muted); }
+/* Reseñas */
+.reviews { display: grid; gap: 14px; }
+.review { background: var(--white); border-radius: var(--r); padding: 22px; box-shadow: 0 6px 24px rgba(11,58,110,.08); display: grid; gap: 12px; align-content: start; min-width: 0; }
+.review p { font-size: 15.5px; }
+.who { display: flex; gap: 12px; align-items: center; }
+.avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--sky-2); color: var(--navy); display: grid; place-items: center; font-family: var(--display); font-weight: 800; flex: none; }
+.who b { display: block; font-size: 15px; }
+.who span { font-size: 13px; color: var(--muted); }
+.gscore { display: inline-flex; align-items: center; gap: 10px; background: var(--white); border-radius: 999px; padding: 6px 14px 6px 8px; box-shadow: 0 4px 16px rgba(11,58,110,.08); font-size: 14px; }
+.gscore b { font-family: var(--display); font-size: 18px; color: var(--navy); }
+.gscore i { font-style: normal; width: 28px; height: 28px; border-radius: 50%; background: var(--navy); color: var(--white); display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 14px; }
+
+/* Por qué: foto + lista de garantías */
+.split { display: grid; gap: 28px; align-items: center; }
+.split .photo { aspect-ratio: 16 / 11; }
+.split-copy { display: grid; gap: 16px; min-width: 0; }
+.checks { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.checks li { display: grid; grid-template-columns: 30px 1fr; gap: 12px; align-items: start; }
+.checks li::before { content: ""; width: 30px; height: 30px; border-radius: 9px; background: var(--sky) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A8BDB' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5 9-10'/%3E%3C/svg%3E") center / 18px no-repeat; }
+.checks b { display: block; color: var(--navy); font-size: 16.5px; }
+.checks span { color: var(--muted); font-size: 15px; }
 
 /* Cifras */
 .stats { background: var(--blue); color: var(--white); }
@@ -150,17 +190,19 @@ header.nav .btn { padding: 10px 16px; font-size: 14px; }
 .zone { background: var(--sky); }
 .zone .wrap { display: grid; gap: 28px; align-items: center; }
 .zone-copy { display: grid; gap: 12px; min-width: 0; }
-.coast { background: var(--white); border-radius: 20px; padding: 18px; box-shadow: 0 8px 30px rgba(11,58,110,.08); min-width: 0; }
+.coast { background: var(--white); border-radius: 20px; padding: 14px; box-shadow: 0 8px 30px rgba(11,58,110,.08); min-width: 0; }
 .coast svg { width: 100%; height: auto; display: block; }
 .coast text { font-family: var(--body); }
 .towns { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 4px 0 0; }
 .towns li { background: var(--white); border: 1px solid var(--sky-2); border-radius: 999px; padding: 5px 12px; font-size: 14px; font-weight: 600; color: var(--navy); }
 
 /* Cómo funciona */
-.how { display: grid; gap: 14px; list-style: none; margin: 0; padding: 0; counter-reset: h; }
-.how li { counter-increment: h; background: var(--sky); border-radius: var(--r); padding: 20px; display: grid; gap: 6px; min-width: 0; }
-.how li::before { content: "0" counter(h); font-family: var(--display); font-weight: 800; font-size: 28px; color: var(--blue); }
-.how h3 { font-size: 18px; font-weight: 700; color: var(--navy); }
+.how-wrap { display: grid; gap: 28px; align-items: center; }
+.how-wrap .photo { aspect-ratio: 16 / 11; }
+.how { display: grid; gap: 12px; list-style: none; margin: 0; padding: 0; counter-reset: h; }
+.how li { counter-increment: h; background: var(--sky); border-radius: var(--r); padding: 18px 20px; display: grid; grid-template-columns: 48px 1fr; gap: 4px 14px; min-width: 0; }
+.how li::before { content: "0" counter(h); grid-row: span 2; font-family: var(--display); font-weight: 800; font-size: 26px; color: var(--blue); line-height: 1.1; }
+.how h3 { font-size: 17.5px; font-weight: 700; color: var(--navy); }
 .how p { color: var(--muted); font-size: 15px; }
 
 /* Tarifas */
@@ -177,15 +219,6 @@ header.nav .btn { padding: 10px 16px; font-size: 14px; }
 .price li::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--blue); transform: translateY(-1px); }
 .price.hot li::before { background: var(--sun); }
 .price .tag { justify-self: start; font-size: 11.5px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; background: var(--sun); color: var(--sun-ink); border-radius: 999px; padding: 3px 10px; font-family: var(--display); }
-
-/* Reseñas */
-.reviews { display: grid; gap: 14px; }
-.review { background: var(--white); border-radius: var(--r); padding: 22px; box-shadow: 0 6px 24px rgba(11,58,110,.08); display: grid; gap: 12px; align-content: start; min-width: 0; }
-.review p { font-size: 15.5px; }
-.who { display: flex; gap: 12px; align-items: center; }
-.avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--sky-2); color: var(--navy); display: grid; place-items: center; font-family: var(--display); font-weight: 800; flex: none; }
-.who b { display: block; font-size: 15px; }
-.who span { font-size: 13px; color: var(--muted); }
 
 /* FAQ */
 .faq { display: grid; gap: 10px; max-width: 820px; margin: 0 auto; }
@@ -207,12 +240,12 @@ header.nav .btn { padding: 10px 16px; font-size: 14px; }
 .info b { color: var(--white); }
 form.quote { background: var(--white); color: var(--ink); border-radius: 20px; padding: 22px; display: grid; gap: 12px; min-width: 0; }
 form.quote h3 { font-size: 20px; color: var(--navy); }
+form.quote .hint { font-size: 14px; color: var(--muted); margin-top: -6px; }
 .field { display: grid; gap: 5px; }
 .field label { font-size: 13.5px; font-weight: 700; color: var(--navy); }
 .field input, .field select, .field textarea { font: inherit; font-size: 16px; color: var(--ink); background: var(--sky); border: 1.5px solid var(--sky-2); border-radius: 10px; padding: 11px 12px; width: 100%; }
 .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--blue); background: var(--white); }
 .row2 { display: grid; gap: 12px; }
-.form-msg { font-size: 14px; color: var(--demo-fg); background: var(--demo-bg); border-radius: 10px; padding: 10px 12px; }
 
 footer { background: var(--navy-2); color: #B8CDE4; font-size: 14px; }
 footer .wrap { display: grid; gap: 24px; padding-block: 40px 110px; }
@@ -221,7 +254,7 @@ footer h4 { font-family: var(--display); color: var(--white); margin: 0 0 8px; f
 footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
 footer a { text-decoration: none; }
 footer a:hover { color: var(--white); }
-.legal { border-top: 1px solid rgba(255,255,255,.1); padding-top: 16px; font-size: 12.5px; grid-column: 1 / -1; }
+.legal { border-top: 1px solid rgba(255,255,255,.1); padding-top: 16px; font-size: 12.5px; grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px 16px; }
 
 /* Barra fija móvil */
 .mbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 25; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 10px var(--gr) calc(10px + env(safe-area-inset-bottom, 0px)) var(--gl); background: var(--white); box-shadow: 0 -6px 24px rgba(11,58,110,.16); }
@@ -235,15 +268,17 @@ footer a:hover { color: var(--white); }
 @media (min-width: 760px) {
   .sec { padding-block: 84px; }
   nav.links { display: flex; }
-  .hero .wrap { grid-template-columns: 1.05fr .95fr; padding-block: 56px 72px; }
-  .hero-art { width: min(42vw, 460px); }
-  .laundry .wrap { grid-template-columns: 1fr 1fr; align-items: center; padding-block: 72px; }
+  .hero .wrap { grid-template-columns: 1fr 1fr; padding-block: 56px 72px; gap: 44px; }
+  .hero-art { padding-bottom: 0; }
+  .hero-art .photo { aspect-ratio: 4 / 4.6; }
+  .novedad { right: -12px; bottom: -22px; }
+  .laundry .wrap { grid-template-columns: 1.1fr .9fr; align-items: center; padding-block: 72px; }
+  .laundry .lsteps { grid-column: 1 / -1; grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .services-panel { grid-template-columns: .8fr 2fr; padding: 40px; align-items: center; }
   .grid-svc { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .why { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .split, .how-wrap { grid-template-columns: 1fr 1fr; gap: 56px; }
   .stats .wrap { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .zone .wrap { grid-template-columns: .9fr 1.1fr; }
-  .how { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .zone .wrap { grid-template-columns: .85fr 1.15fr; }
   .prices { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; }
   .reviews { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .contact .wrap { grid-template-columns: 1fr 1fr; padding-block: 80px; }
@@ -270,12 +305,13 @@ footer a:hover { color: var(--white); }
     </a>
     <nav class="links" aria-label="Secciones">
       <a href="#servicios">Servicios</a>
-      <a href="#lavanderia">Lavandería</a>
+      <a href="#lavanderia" class="hot">¡Lavandería!</a>
+      <a href="#opiniones">Opiniones</a>
       <a href="#zona">Zona</a>
       <a href="#tarifas">Tarifas</a>
       <a href="#contacto">Contacto</a>
     </nav>
-    <a class="btn btn-sun" href="#contacto">Presupuesto</a>
+    <a class="btn btn-sun wa-link" data-msg="Hola Olga Mar, quiero pedir presupuesto para una limpieza." href="https://wa.me/34672576873">Presupuesto</a>
   </div>
 </header>
 
@@ -286,25 +322,25 @@ footer a:hover { color: var(--white); }
       <div class="hero-copy">
         <p class="eyebrow">Limpieza en el Garraf y el Baix Penedès</p>
         <h1>Tu casa, tu escalera y tu oficina, <em>impecables</em></h1>
-        <p class="lead">Limpiamos casas, pisos, pisos turísticos, escaleras de comunidades y oficinas, de Vilanova i la Geltrú a El Vendrell. Personal de confianza y presupuesto sin compromiso.</p>
+        <p class="lead">Limpiamos casas, pisos, pisos turísticos, escaleras de comunidades y oficinas, de Vilanova i la Geltrú a El Vendrell. Personal propio y presupuesto cerrado, sin sorpresas.</p>
         <div class="cta-row">
-          <a class="btn btn-sun" href="#contacto">Pide tu presupuesto gratis</a>
-          <a class="btn btn-wa" href="https://wa.me/34672576873">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>
-            WhatsApp
-          </a>
+          <a class="btn btn-sun wa-link" data-msg="Hola Olga Mar, quiero pedir presupuesto para una limpieza." href="https://wa.me/34672576873">Pide presupuesto gratis</a>
+          <a class="btn btn-ghost" href="tel:+34672576873">Llamar</a>
         </div>
         <ul class="trust">
-          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span>Personal de confianza</li>
-          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-6-6Z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span>Presupuesto sin compromiso</li>
-          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg></span>Resultado garantizado</li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span>Seguro de responsabilidad civil</li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.5-6 8-6s7 2 8 6"/></svg></span>Personal propio</li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-6-6Z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span>Presupuesto cerrado</li>
         </ul>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="disc"></div>
-        <img src="img/logo_om_icono.webp" alt="" width="307" height="270">
-        <div class="float f1"><div><span class="stars">★★★★★</span><b>4,9 / 5</b><span>en Google (ejemplo)</span></div></div>
-        <div class="float f2"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="13" r="4.5"/><path d="M7.5 6.5h.01M10.5 6.5h3"/></svg></span><div><b>Nuevo</b><span>Lavandería a domicilio</span></div></div>
+      <div class="hero-art">
+        <div class="photo"><img src="img/foto_portada.webp" alt="Profesional de la limpieza con guantes amarillos limpiando una mesa en un salón luminoso" width="1400" height="787"></div>
+        <div class="rating"><span class="stars">★★★★★</span><b>4,9 / 5</b>en Google (ejemplo)</div>
+        <a class="novedad" href="#lavanderia">
+          <span class="tag">¡Novedad!</span>
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="13" r="4.5"/><path d="M7.5 6.5h.01M10.5 6.5h3"/></svg></span>
+          <span><strong>¡Te recogemos la colada en casa!</strong><span>Lavamos, secamos, doblamos y te la devolvemos. <u>Descúbrelo →</u></span></span>
+        </a>
       </div>
     </div>
   </section>
@@ -312,19 +348,20 @@ footer a:hover { color: var(--white); }
   <section class="laundry" id="lavanderia">
     <div class="wrap">
       <div class="laundry-copy">
-        <span class="badge-new">Novedad en la zona</span>
+        <span class="badge-new">¡Novedad en la zona!</span>
         <h2>Lavandería con <em>recogida y entrega</em> a domicilio</h2>
-        <p class="lead">Olvídate de cargar bolsas. Pasamos a por tu ropa, la lavamos, la secamos, la doblamos y te la devolvemos en casa. Ideal para familias, pisos turísticos y negocios.</p>
+        <p class="lead">Olvídate de cargar bolsas. Pasamos a por tu ropa, la lavamos, la secamos, la doblamos y te la devolvemos en casa. Para particulares, familias, pisos turísticos y negocios.</p>
         <div class="cta-row">
-          <a class="btn btn-sun" href="#contacto">Reserva tu recogida</a>
+          <a class="btn btn-sun wa-link" data-msg="Hola Olga Mar, quiero reservar una recogida de lavandería a domicilio." href="https://wa.me/34672576873">Reserva tu recogida</a>
           <a class="btn btn-ghost-w" href="tel:+34672576873">Llamar al 672 57 68 73</a>
         </div>
         <p class="soon">Muy pronto, web propia del servicio de lavandería.</p>
       </div>
+      <div class="photo"><img src="img/foto_toallas.webp" alt="Toallas azules y blancas recién lavadas y dobladas" width="900" height="1125" loading="lazy"></div>
       <ol class="lsteps">
-        <li><div><h3>Reservas la recogida</h3><p>Por teléfono o WhatsApp. Eliges el día y la franja horaria.</p></div></li>
+        <li><div><h3>Reservas la recogida</h3><p>Por WhatsApp o teléfono. Eliges el día y la franja horaria.</p></div></li>
         <li><div><h3>Recogemos en tu puerta</h3><p>Ropa de casa, ropa de cama, toallas, edredones y cortinas.</p></div></li>
-        <li><div><h3>Te la devolvemos lista</h3><p>Lavada, seca y doblada en 48 horas (plazo de ejemplo).</p></div></li>
+        <li><div><h3>Te la devolvemos lista</h3><p>Lavada, seca y doblada en 48 horas.</p></div></li>
       </ol>
     </div>
   </section>
@@ -336,7 +373,7 @@ footer a:hover { color: var(--white); }
           <p class="eyebrow" style="color:#7CC8F5">Qué limpiamos</p>
           <h2>Nuestros servicios de limpieza</h2>
           <p>Limpiezas periódicas o puntuales, adaptadas a cada espacio.</p>
-          <a class="btn btn-sun" href="#contacto" style="justify-self:start">Pide presupuesto</a>
+          <a class="btn btn-sun wa-link" data-msg="Hola Olga Mar, quiero pedir presupuesto para una limpieza." href="https://wa.me/34672576873" style="justify-self:start">Pide presupuesto</a>
         </div>
         <div class="grid-svc">
           <div class="svc"><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 22 24 9l16 13"/><path d="M12 19v20h24V19"/><path d="M20 39V28h8v11"/></svg><h3>Casas particulares</h3><p>Limpieza general y a fondo de viviendas.</p></div>
@@ -350,17 +387,34 @@ footer a:hover { color: var(--white); }
     </div>
   </section>
 
-  <section class="sec" style="padding-top:0">
+  <section class="sec" id="opiniones" style="background:var(--sky)">
     <div class="wrap">
       <div class="sec-head center">
+        <p class="eyebrow">Opiniones</p>
+        <h2 class="h2">Lo que dicen nuestros clientes</h2>
+        <span class="gscore"><i>G</i><b>4,9</b><span class="stars">★★★★★</span>Reseñas de ejemplo</span>
+      </div>
+      <div class="reviews">
+        <div class="review"><span class="stars">★★★★★</span><p>“Llevan dos años limpiando mi casa y siempre la dejan perfecta. Son puntuales y de total confianza.”</p><div class="who"><span class="avatar">M</span><div><b>Montse R.</b><span>Vilanova i la Geltrú</span></div></div></div>
+        <div class="review"><span class="stars">★★★★★</span><p>“Tengo dos pisos turísticos en Calafell y con ellas me olvido de los cambios de huéspedes. La lavandería a domicilio es un lujo.”</p><div class="who"><span class="avatar">J</span><div><b>Jordi P.</b><span>Calafell</span></div></div></div>
+        <div class="review"><span class="stars">★★★★★</span><p>“Nuestra comunidad está encantada. La escalera nunca había estado tan limpia y el trato es muy cercano.”</p><div class="who"><span class="avatar">A</span><div><b>Ana G.</b><span>Cunit</span></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap split">
+      <div class="photo"><img src="img/foto_fregona.webp" alt="Profesional fregando el suelo de un dormitorio luminoso" width="1200" height="675" loading="lazy"></div>
+      <div class="split-copy">
         <p class="eyebrow">Por qué Olga Mar</p>
         <h2 class="h2">Una empresa de aquí, que cuida tu casa como la suya</h2>
-      </div>
-      <div class="why">
-        <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.5-6 8-6s7 2 8 6"/></svg></span><h3>Siempre el mismo equipo</h3><p>Conoces a quien entra en tu casa.</p></div>
-        <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>Horarios flexibles</h3><p>Nos adaptamos a ti, también sábados.</p></div>
-        <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20c-2-3-2-8 3-11 3-2 7-2 9-5 1 6-1 12-6 14-2 1-4 1-6 2Z"/><path d="M7 20c2-4 5-7 9-9"/></svg></span><h3>Productos de calidad</h3><p>Eficaces y seguros para niños y mascotas.</p></div>
-        <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><h3>Cerca de ti</h3><p>Trabajamos entre Vilanova i la Geltrú y El Vendrell.</p></div>
+        <ul class="checks">
+          <li><div><b>Personal propio, siempre el mismo equipo</b><span>Sin subcontratas. Conoces a quien entra en tu casa.</span></div></li>
+          <li><div><b>Seguro de responsabilidad civil</b><span>Trabajamos cubiertas ante cualquier imprevisto.</span></div></li>
+          <li><div><b>Si algo no queda bien, volvemos sin coste</b><span>Nos avisas en 24 horas y lo repasamos.</span></div></li>
+          <li><div><b>Presupuesto cerrado</b><span>Sabes lo que vas a pagar antes de empezar.</span></div></li>
+        </ul>
+        <a class="btn btn-sun wa-link" data-msg="Hola Olga Mar, quiero pedir presupuesto para una limpieza." href="https://wa.me/34672576873" style="justify-self:start">Pide presupuesto gratis</a>
       </div>
     </div>
   </section>
@@ -386,37 +440,48 @@ footer a:hover { color: var(--white); }
         </ul>
       </div>
       <div class="coast">
-        <svg viewBox="0 0 520 300" role="img" aria-label="Esquema de la costa con los seis municipios, de Vilanova i la Geltrú a El Vendrell">
-          <path d="M0 300 L0 170 C70 168 120 196 180 206 C250 218 300 226 360 236 C420 246 470 262 520 272 L520 300 Z" fill="#D6E8F7"/>
-          <path d="M0 170 C70 168 120 196 180 206 C250 218 300 226 360 236 C420 246 470 262 520 272" fill="none" stroke="#0A8BDB" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round"/>
-          <text x="420" y="292" font-size="13" fill="#4D6280" font-style="italic">Mar Mediterráneo</text>
-          <path d="M44 138 C120 150 160 172 214 180 C280 190 330 198 384 208 C430 216 460 226 486 236" fill="none" stroke="#0B3A6E" stroke-width="4" stroke-linecap="round"/>
-          <g fill="#0B3A6E" font-size="13" font-weight="600">
-            <circle cx="44" cy="138" r="8" fill="#0A8BDB" stroke="#fff" stroke-width="3"/><text x="20" y="116">Vilanova i la Geltrú</text>
-            <circle cx="140" cy="157" r="6" stroke="#fff" stroke-width="3"/><text x="112" y="186">Cubelles</text>
-            <circle cx="230" cy="182" r="6" stroke="#fff" stroke-width="3"/><text x="214" y="162">Cunit</text>
-            <circle cx="318" cy="196" r="6" stroke="#fff" stroke-width="3"/><text x="262" y="226">Segur de Calafell</text>
-            <circle cx="384" cy="208" r="6" stroke="#fff" stroke-width="3"/><text x="356" y="188">Calafell</text>
-            <circle cx="486" cy="236" r="8" fill="#0A8BDB" stroke="#fff" stroke-width="3"/><text x="430" y="214">El Vendrell</text>
+        <svg viewBox="0 0 520 300" role="img" aria-label="Mapa esquemático: El Vendrell al oeste, Vilanova i la Geltrú al este y el mar al sur">
+          <rect x="0" y="0" width="520" height="300" fill="#FFFFFF"/>
+          <path d="M0 214 C60 206 110 196 170 186 C220 178 270 170 330 154 C380 140 430 126 520 112 L520 300 L0 300 Z" fill="#D6E8F7"/>
+          <path d="M0 214 C60 206 110 196 170 186 C220 178 270 170 330 154 C380 140 430 126 520 112" fill="none" stroke="#0A8BDB" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round"/>
+          <text x="260" y="262" font-size="14" fill="#4D6280" font-style="italic" text-anchor="middle">Mar Mediterráneo</text>
+          <path d="M92 186 L172 172 L232 166 L288 150 L352 132 L442 108" fill="none" stroke="#0B3A6E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <g font-size="13" font-weight="600" fill="#0B3A6E">
+            <circle cx="92" cy="186" r="8" fill="#0A8BDB" stroke="#fff" stroke-width="3"/>
+            <text x="20" y="150">El Vendrell</text>
+            <text x="20" y="166" font-size="11" font-weight="500" fill="#4D6280">Coma-ruga · Sant Salvador</text>
+            <circle cx="172" cy="172" r="6" stroke="#fff" stroke-width="3"/><text x="172" y="208" text-anchor="middle">Calafell</text>
+            <circle cx="232" cy="166" r="6" stroke="#fff" stroke-width="3"/><text x="226" y="140" text-anchor="middle">Segur de Calafell</text>
+            <circle cx="288" cy="150" r="6" stroke="#fff" stroke-width="3"/><text x="300" y="186" text-anchor="middle">Cunit</text>
+            <circle cx="352" cy="132" r="6" stroke="#fff" stroke-width="3"/><text x="346" y="110" text-anchor="middle">Cubelles</text>
+            <circle cx="442" cy="108" r="8" fill="#0A8BDB" stroke="#fff" stroke-width="3"/><text x="500" y="84" text-anchor="end">Vilanova i la Geltrú</text>
           </g>
-          <text x="20" y="36" font-size="12" fill="#4D6280" font-weight="700" letter-spacing="1.5">GARRAF · BAIX PENEDÈS</text>
-          <text x="20" y="56" font-size="12" fill="#4D6280">Esquema, no a escala</text>
+          <g transform="translate(488 30)">
+            <circle r="16" fill="#EAF3FB"/>
+            <path d="M0 -11 L5 4 L0 1 L-5 4 Z" fill="#0B3A6E"/>
+            <text y="-18" font-size="11" font-weight="700" fill="#0B3A6E" text-anchor="middle">N</text>
+          </g>
+          <text x="20" y="34" font-size="12" fill="#4D6280" font-weight="700" letter-spacing="1.5">BAIX PENEDÈS · GARRAF</text>
+          <text x="20" y="52" font-size="12" fill="#4D6280">Esquema, no a escala</text>
         </svg>
       </div>
     </div>
   </section>
 
   <section class="sec">
-    <div class="wrap">
-      <div class="sec-head center">
-        <p class="eyebrow">Así de fácil</p>
-        <h2 class="h2">Cómo contratar una limpieza</h2>
+    <div class="wrap how-wrap">
+      <div style="display:grid;gap:22px;min-width:0">
+        <div class="sec-head" style="margin:0">
+          <p class="eyebrow">Así de fácil</p>
+          <h2 class="h2">Cómo contratar una limpieza</h2>
+        </div>
+        <ol class="how">
+          <li><h3>Nos escribes por WhatsApp</h3><p>Cuéntanos el tipo de espacio y cada cuánto lo necesitas.</p></li>
+          <li><h3>Te damos presupuesto cerrado</h3><p>Gratis y en el mismo día. Si hace falta, pasamos a verlo.</p></li>
+          <li><h3>Nosotras nos encargamos</h3><p>El día acordado llegamos con todo lo necesario.</p></li>
+        </ol>
       </div>
-      <ol class="how">
-        <li><h3>Nos cuentas qué necesitas</h3><p>Llámanos o escríbenos por WhatsApp con el tipo de espacio y la frecuencia.</p></li>
-        <li><h3>Te damos presupuesto</h3><p>Gratis y sin compromiso. Si hace falta, pasamos a verlo.</p></li>
-        <li><h3>Nosotras nos encargamos</h3><p>El día acordado llegamos con todo lo necesario.</p></li>
-      </ol>
+      <div class="photo"><img src="img/foto_estanteria.webp" alt="Profesional con guantes limpiando el polvo de una estantería de madera" width="1200" height="675" loading="lazy"></div>
     </div>
   </section>
 
@@ -428,24 +493,9 @@ footer a:hover { color: var(--white); }
         <span class="demo">Precios de ejemplo</span>
       </div>
       <div class="prices">
-        <div class="price"><h3>Limpieza por horas</h3><div class="amt">16 € <small>/ hora</small></div><ul><li>Casas y pisos</li><li>Mínimo 2 horas</li><li>Productos incluidos</li></ul><a class="btn btn-ghost" href="#contacto">Pedir presupuesto</a></div>
-        <div class="price hot"><span class="tag">Más pedido</span><h3>Piso turístico</h3><div class="amt">35 € <small>/ salida</small></div><ul><li>Limpieza entre huéspedes</li><li>Cambio de ropa de cama</li><li>Lavandería incluida</li></ul><a class="btn btn-sun" href="#contacto">Pedir presupuesto</a></div>
-        <div class="price"><h3>Escaleras y comunidades</h3><div class="amt">60 € <small>/ mes</small></div><ul><li>Desde 1 visita semanal</li><li>Portal, escalera y ascensor</li><li>Factura a la comunidad</li></ul><a class="btn btn-ghost" href="#contacto">Pedir presupuesto</a></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" style="background:var(--sky)">
-    <div class="wrap">
-      <div class="sec-head center">
-        <p class="eyebrow">Opiniones</p>
-        <h2 class="h2">Lo que dicen nuestros clientes</h2>
-        <span class="demo">Reseñas de ejemplo</span>
-      </div>
-      <div class="reviews">
-        <div class="review"><span class="stars">★★★★★</span><p>“Llevan dos años limpiando mi casa y siempre la dejan perfecta. Son puntuales y de total confianza.”</p><div class="who"><span class="avatar">M</span><div><b>Montse R.</b><span>Vilanova i la Geltrú</span></div></div></div>
-        <div class="review"><span class="stars">★★★★★</span><p>“Tengo dos pisos turísticos en Calafell y con ellas me olvido de los cambios de huéspedes. La lavandería a domicilio es un lujo.”</p><div class="who"><span class="avatar">J</span><div><b>Jordi P.</b><span>Calafell</span></div></div></div>
-        <div class="review"><span class="stars">★★★★★</span><p>“Nuestra comunidad está encantada. La escalera nunca había estado tan limpia y el trato es muy cercano.”</p><div class="who"><span class="avatar">A</span><div><b>Ana G.</b><span>Cunit</span></div></div></div>
+        <div class="price"><h3>Limpieza por horas</h3><div class="amt">16 € <small>/ hora</small></div><ul><li>Casas y pisos</li><li>Mínimo 2 horas</li><li>Productos incluidos</li></ul><a class="btn btn-ghost wa-link" data-msg="Hola Olga Mar, quiero presupuesto de limpieza por horas." href="https://wa.me/34672576873">Pedir presupuesto</a></div>
+        <div class="price hot"><span class="tag">Más pedido</span><h3>Piso turístico</h3><div class="amt">35 € <small>/ salida</small></div><ul><li>Limpieza entre huéspedes</li><li>Cambio de ropa de cama</li><li>Lavandería incluida</li></ul><a class="btn btn-sun wa-link" data-msg="Hola Olga Mar, quiero presupuesto para un piso turístico." href="https://wa.me/34672576873">Pedir presupuesto</a></div>
+        <div class="price"><h3>Escaleras y comunidades</h3><div class="amt">60 € <small>/ mes</small></div><ul><li>Desde 1 visita semanal</li><li>Portal, escalera y ascensor</li><li>Factura a la comunidad</li></ul><a class="btn btn-ghost wa-link" data-msg="Hola Olga Mar, quiero presupuesto para la limpieza de una comunidad." href="https://wa.me/34672576873">Pedir presupuesto</a></div>
       </div>
     </div>
   </section>
@@ -457,9 +507,10 @@ footer a:hover { color: var(--white); }
         <h2 class="h2">Resolvemos tus dudas</h2>
       </div>
       <div class="faq">
-        <details><summary>¿El presupuesto tiene coste?</summary><p>No. El presupuesto es gratuito y sin compromiso.</p></details>
+        <details><summary>¿El presupuesto tiene coste?</summary><p>No. Es gratuito, cerrado y te lo damos en el mismo día.</p></details>
         <details><summary>¿Lleváis vosotras los productos y utensilios?</summary><p>Sí, llevamos todo lo necesario. Si prefieres que usemos tus productos, también podemos.</p></details>
-        <details><summary>¿Cómo funciona la lavandería a domicilio?</summary><p>Reservas la recogida por teléfono o WhatsApp, pasamos a por la ropa y te la devolvemos lavada, seca y doblada en tu casa.</p></details>
+        <details><summary>¿Y si algo no queda bien?</summary><p>Nos avisas en las 24 horas siguientes y volvemos a repasarlo sin coste.</p></details>
+        <details><summary>¿Cómo funciona la lavandería a domicilio?</summary><p>Reservas la recogida por WhatsApp o teléfono, pasamos a por la ropa y te la devolvemos lavada, seca y doblada en 48 horas.</p></details>
         <details><summary>¿En qué municipios trabajáis?</summary><p>Vilanova i la Geltrú, Cubelles, Cunit, Segur de Calafell, Calafell y El Vendrell, incluidas Coma-ruga y Sant Salvador.</p></details>
       </div>
     </div>
@@ -470,10 +521,10 @@ footer a:hover { color: var(--white); }
       <div class="contact-copy">
         <p class="eyebrow" style="color:#7CC8F5">Contacto</p>
         <h2>Pide tu presupuesto sin compromiso</h2>
-        <p class="lead">Llámanos, escríbenos por WhatsApp o déjanos tus datos y te llamamos nosotras.</p>
+        <p class="lead">Escríbenos por WhatsApp o llámanos. Te respondemos en el mismo día.</p>
         <a class="big-phone" href="tel:+34672576873">672 57 68 73</a>
         <div class="cta-row">
-          <a class="btn btn-wa" href="https://wa.me/34672576873">Escribir por WhatsApp</a>
+          <a class="btn btn-wa wa-link" data-msg="Hola Olga Mar, quiero pedir presupuesto." href="https://wa.me/34672576873">Escribir por WhatsApp</a>
           <button class="btn btn-ghost-w" type="button" id="copy-tel">Copiar número</button>
         </div>
         <div class="info">
@@ -482,24 +533,21 @@ footer a:hover { color: var(--white); }
         </div>
       </div>
       <form class="quote" id="quote" novalidate>
-        <h3>Te llamamos</h3>
+        <h3>Prepara tu mensaje</h3>
+        <p class="hint">Rellena esto y se abre WhatsApp con el mensaje escrito.</p>
         <div class="row2">
           <div class="field"><label for="f-name">Nombre</label><input id="f-name" name="name" autocomplete="name" placeholder="Tu nombre"></div>
-          <div class="field"><label for="f-phone">Teléfono</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="600 000 000"></div>
-        </div>
-        <div class="row2">
-          <div class="field"><label for="f-service">Servicio</label>
-            <select id="f-service" name="service">
-              <option>Casa o piso</option><option>Piso turístico</option><option>Escalera o comunidad</option><option>Oficina o local</option><option>Limpieza a fondo</option><option>Lavandería a domicilio</option>
-            </select></div>
           <div class="field"><label for="f-town">Municipio</label>
             <select id="f-town" name="town">
               <option>Vilanova i la Geltrú</option><option>Cubelles</option><option>Cunit</option><option>Segur de Calafell</option><option>Calafell</option><option>El Vendrell</option>
             </select></div>
         </div>
+        <div class="field"><label for="f-service">Servicio</label>
+          <select id="f-service" name="service">
+            <option>Limpieza de casa o piso</option><option>Limpieza de piso turístico</option><option>Limpieza de escalera o comunidad</option><option>Limpieza de oficina o local</option><option>Limpieza a fondo</option><option>Lavandería a domicilio</option>
+          </select></div>
         <div class="field"><label for="f-msg">Cuéntanos un poco más</label><textarea id="f-msg" name="msg" rows="3" placeholder="Metros, frecuencia, fechas…"></textarea></div>
-        <button class="btn btn-sun" type="submit">Enviar solicitud</button>
-        <p class="form-msg" id="form-msg" hidden>Esto es un modelo: el formulario todavía no envía datos.</p>
+        <a class="btn btn-wa" id="wa-send" href="https://wa.me/34672576873">Enviar por WhatsApp</a>
       </form>
     </div>
   </section>
@@ -513,25 +561,36 @@ footer a:hover { color: var(--white); }
     </div>
     <div><h4>Servicios</h4><ul><li><a href="#servicios">Casas y pisos</a></li><li><a href="#servicios">Pisos turísticos</a></li><li><a href="#servicios">Escaleras y comunidades</a></li><li><a href="#servicios">Oficinas</a></li><li><a href="#lavanderia">Lavandería a domicilio</a></li></ul></div>
     <div><h4>Zona</h4><ul><li>Vilanova i la Geltrú</li><li>Cubelles · Cunit</li><li>Segur de Calafell · Calafell</li><li>El Vendrell</li></ul></div>
-    <div><h4>Contacto</h4><ul><li><a href="tel:+34672576873">672 57 68 73</a></li><li><a href="https://wa.me/34672576873">WhatsApp</a></li><li>Lunes a sábado</li></ul></div>
-    <p class="legal">© 2026 Olga Mar · Aviso legal · Privacidad · Cookies</p>
+    <div><h4>Contacto</h4><ul><li><a href="tel:+34672576873">672 57 68 73</a></li><li><a class="wa-link" data-msg="Hola Olga Mar." href="https://wa.me/34672576873">WhatsApp</a></li><li>Lunes a sábado</li></ul></div>
+    <p class="legal"><span>© 2026 Olga Mar</span><span>Aviso legal</span><span>Política de privacidad</span><span>Política de cookies</span></p>
   </div>
 </footer>
 
 <div class="mbar">
   <a class="btn btn-navy" href="tel:+34672576873">Llamar</a>
-  <a class="btn btn-wa" href="https://wa.me/34672576873">WhatsApp</a>
+  <a class="btn btn-wa wa-link" data-msg="Hola Olga Mar, quiero pedir presupuesto." href="https://wa.me/34672576873">WhatsApp</a>
 </div>
 
 <script>
+var WA = 'https://wa.me/34672576873';
+document.querySelectorAll('.wa-link').forEach(function (a) {
+  a.href = WA + '?text=' + encodeURIComponent(a.dataset.msg);
+});
+(function () {
+  var f = document.getElementById('quote'), send = document.getElementById('wa-send');
+  function build() {
+    var v = function (id) { return document.getElementById(id).value.trim(); };
+    var txt = 'Hola Olga Mar' + (v('f-name') ? ', soy ' + v('f-name') : '') + '. Quiero presupuesto: ' + v('f-service') + ' en ' + v('f-town') + '.' + (v('f-msg') ? ' ' + v('f-msg') : '');
+    send.href = WA + '?text=' + encodeURIComponent(txt);
+  }
+  f.addEventListener('input', build); f.addEventListener('change', build);
+  f.addEventListener('submit', function (e) { e.preventDefault(); });
+  build();
+})();
 document.getElementById('copy-tel').addEventListener('click', function () {
   var btn = this;
   function done() { btn.textContent = 'Copiado'; setTimeout(function () { btn.textContent = 'Copiar número'; }, 1800); }
   try { navigator.clipboard.writeText('+34 672 57 68 73').then(done, function () { btn.textContent = '+34 672 57 68 73'; }); }
   catch (e) { btn.textContent = '+34 672 57 68 73'; }
-});
-document.getElementById('quote').addEventListener('submit', function (e) {
-  e.preventDefault();
-  document.getElementById('form-msg').hidden = false;
 });
 </script>
